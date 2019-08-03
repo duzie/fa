@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: fa
+  datasource:
+    url: jdbc:mysql://localhost:3306/fa
+    username: root
+    password: 23456789
