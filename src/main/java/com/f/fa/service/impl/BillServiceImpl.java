@@ -10,12 +10,10 @@ import com.f.fa.service.BillService;
 import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class BillServiceImpl extends ServiceImpl<BillMapper, Bill> implements BillService {
@@ -28,6 +26,7 @@ public class BillServiceImpl extends ServiceImpl<BillMapper, Bill> implements Bi
 
     @Override
     public void add(Bill bill) {
+        bill.setCreateDate(new Date());
         this.save(bill);
         int cycle = bill.getCycle();
         CycleType cycleType = CycleType.getCycleType(bill.getCycle());
@@ -58,5 +57,14 @@ public class BillServiceImpl extends ServiceImpl<BillMapper, Bill> implements Bi
             }
         }
         billDetailService.saveBatch(billDetailList);
+    }
+
+    @Transactional
+    @Override
+    public void deleteBill(long id) {
+        removeById(id);
+        Map<String, Object> map = new HashMap<>();
+        map.put("bill_id", id);
+        billDetailService.removeByMap(map);
     }
 }

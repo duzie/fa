@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.f.fa.mapper.BillDetailMapper;
 import com.f.fa.pojo.BillDetail;
 import com.f.fa.pojo.BillDetailVo;
+import com.f.fa.pojo.BillMonthDetailVo;
 import com.f.fa.service.BillDetailService;
 import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,7 @@ public class BillDetailServiceImpl extends ServiceImpl<BillDetailMapper, BillDet
     private BillDetailMapper billDetailMapper;
 
     @Override
-    public List<BillDetailVo> findBillDetails() {
+    public List<BillMonthDetailVo> findBillDetails() {
         QueryWrapper<BillDetail> wrapper = new QueryWrapper<>();
         wrapper.ge("bill_date", DateUtils.truncate(new Date(), Calendar.DATE));
         List<BillDetail> list = list(wrapper);
@@ -36,6 +37,18 @@ public class BillDetailServiceImpl extends ServiceImpl<BillDetailMapper, BillDet
             billDetailVos.add(billDetailVo);
         }
         billDetailVos.sort(Comparator.comparing(BillDetailVo::getBillDate));
-        return billDetailVos;
+
+        Map<Date, List<BillDetailVo>> monthCollect = billDetailVos.stream().collect(Collectors.groupingBy(BillDetailVo::getBillByMonth));
+        List<BillMonthDetailVo> billMonthDetailVos = new ArrayList<>();
+        Set<Date> dates1 = monthCollect.keySet();
+        for (Date date : dates1) {
+            BillMonthDetailVo billMonthDetailVo = new BillMonthDetailVo();
+            billMonthDetailVo.setBillDate(date);
+            billMonthDetailVo.setBillDetails(monthCollect.get(date));
+            billMonthDetailVo.setAmount(monthCollect.get(date).stream().mapToDouble(BillDetailVo::getAmount).sum());
+            billMonthDetailVos.add(billMonthDetailVo);
+        }
+        billMonthDetailVos.sort(Comparator.comparing(BillMonthDetailVo::getBillDate));
+        return billMonthDetailVos;
     }
 }

@@ -1,6 +1,7 @@
 package com.f.fa.pojo;
 
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -35,5 +36,8 @@ public class Bill {
     /**
      * 开始日期
      */
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date startDate;
+
+    private Date createDate;
 }

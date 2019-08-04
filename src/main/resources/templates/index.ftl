@@ -5,31 +5,42 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <title>我的账单</title>
     <link rel="stylesheet" href="http://www.getuikit.net/docs/css/uikit.docs.min.css"/>
-
+<style>
+    li span{
+        width:6rem;
+        display: block;
+        float: left;
+    }
+</style>
 </head>
 <body>
 
 <div class="uk-overflow-container" style="margin: 10px;">
+    <a class="uk-button" href="add">添加</a>
+    <#list billMonth as bill>
+        <h3 align="center">
+            ${bill.billDate?string('yyyy年MM月')}
+            ${bill.amount}元
+        </h3>
 <table class="uk-table "  >
     <tbody>
-<#list bill as b>
-    <tr>
-        <td>${b.billDate?string('yyyy-MM-dd')}</td>
-        <td>${b.amount}</td>
-        <td>
-            <table class="uk-table " >
-                <#list b.billDetails as detail>
-                <tr>
-                    <td>${detail.billName!}</td>
-                    <td>${detail.amount}</td>
-                </tr>
-                </#list>
-            </table>
-        </td>
-    </tr>
-</#list>
+        <#list bill.billDetails as b>
+            <tr>
+                <td>${b.billDate?string('dd')}日</td>
+                <td>${b.amount}元</td>
+                <td>
+                    <ul class="uk-list uk-list-line">
+                        <#list b.billDetails as detail>
+                            <li><span>${detail.billName!}</span> ${detail.amount}元</li>
+                        </#list>
+                    </ul>
+                </td>
+            </tr>
+        </#list>
     </tbody>
 </table>
+    </#list>
+
 </div>
 </body>
 </html>

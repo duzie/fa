@@ -1,7 +1,7 @@
 package com.f.fa;
 
 import com.f.fa.pojo.Bill;
-import com.f.fa.pojo.BillDetailVo;
+import com.f.fa.pojo.BillMonthDetailVo;
 import com.f.fa.pojo.enums.CycleType;
 import com.f.fa.service.BillDetailService;
 import com.f.fa.service.BillService;
@@ -40,8 +40,8 @@ public class FaApplicationTests {
 
     @Test
     public void findBillDetail() {
-        List<BillDetailVo> billDetails = billDetailService.findBillDetails();
-        for (BillDetailVo billDetail : billDetails) {
+        List<BillMonthDetailVo> billDetails = billDetailService.findBillDetails();
+        for (BillMonthDetailVo billDetail : billDetails) {
             log.debug("{}", billDetail);
         }
     }
