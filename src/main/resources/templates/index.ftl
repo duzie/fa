@@ -6,7 +6,7 @@
     <title>我的账单</title>
     <link rel="apple-touch-icon" href="icon.png">
     <link href="icon.png" sizes="114x114" rel="apple-touch-icon-precomposed">
-    <link rel="stylesheet" href="http://www.getuikit.net/docs/css/uikit.docs.min.css"/>
+<#--    <link rel="stylesheet" href="http://www.getuikit.net/docs/css/uikit.docs.min.css"/>-->
 <style>
     li span{
         width:6rem;
