@@ -10,7 +10,7 @@
 <body>
 <div class="uk-overflow-container" style="margin: 10px;">
     <a class="uk-button" href="./">查账单</a>
-    <form class="uk-form" action="add" method="post">
+    <form class="uk-form" action="add?${_csrf.parameterName}=${_csrf.token}" method="post">
         <fieldset>
             <legend>录入</legend>
             <div class="uk-form-row">
