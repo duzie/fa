@@ -10,9 +10,3 @@ spring:
       password: '{bcrypt}$2a$10$16zpnXoTcCbvBZ3vHWYY4.J0xqln29SVWkl/FjLTAeIdJ.ShTomDu'
 logging:
   level.com.f.fa: debug
-server:
-  ssl:
-    key-store: /Users/fei/keystore.p12
-    key-password: 123456
-    key-store-type: PKCS12
-    key-alias: tomcat
