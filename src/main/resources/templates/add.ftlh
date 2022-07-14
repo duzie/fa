@@ -23,7 +23,7 @@
                 </select>
             </div>
             <div class="uk-form-row">
-                <input type="text" pattern="[0-9]*" name="periods" placeholder="期数">
+                <input type="text" pattern="[0-9]*" name="periods" placeholder="期数" value="1">
 
                 <input type="date" name="startDate" id="start-date" placeholder="开始日期">
             </div>
