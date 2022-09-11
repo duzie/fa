@@ -9,6 +9,6 @@ import java.util.List;
 public interface BillDetailService extends IService<BillDetail> {
 
 
-    List<BillMonthDetailVo> findBillDetails();
+    List<BillMonthDetailVo> findBillDetails(int balance);
 
 }

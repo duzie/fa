@@ -38,6 +38,11 @@
                             </ul>
                         </td>
                     </tr>
+                    <tr>
+                        <td></td>
+                        <td>债 ${b.balance}</td>
+                        <td></td>
+                    </tr>
                 </#list>
             </tbody>
         </table>

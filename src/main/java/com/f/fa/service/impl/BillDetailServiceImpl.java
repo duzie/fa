@@ -10,18 +10,14 @@ import com.f.fa.service.BillDetailService;
 import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
 public class BillDetailServiceImpl extends ServiceImpl<BillDetailMapper, BillDetail> implements BillDetailService {
 
-    @Resource
-    private BillDetailMapper billDetailMapper;
-
     @Override
-    public List<BillMonthDetailVo> findBillDetails() {
+    public List<BillMonthDetailVo> findBillDetails(int balance) {
         QueryWrapper<BillDetail> wrapper = new QueryWrapper<>();
         wrapper.ge("bill_date", DateUtils.truncate(new Date(), Calendar.DATE));
         List<BillDetail> list = list(wrapper);
@@ -37,6 +33,10 @@ public class BillDetailServiceImpl extends ServiceImpl<BillDetailMapper, BillDet
             billDetailVos.add(billDetailVo);
         }
         billDetailVos.sort(Comparator.comparing(BillDetailVo::getBillDate));
+        for (BillDetailVo billDetailVo : billDetailVos) {
+            balance = billDetailVo.getAmount().intValue() + balance;
+            billDetailVo.setBalance(balance);
+        }
 
         Map<Date, List<BillDetailVo>> monthCollect = billDetailVos.stream().collect(Collectors.groupingBy(BillDetailVo::getBillByMonth));
         List<BillMonthDetailVo> billMonthDetailVos = new ArrayList<>();

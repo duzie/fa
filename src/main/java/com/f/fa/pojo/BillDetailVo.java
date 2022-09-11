@@ -16,6 +16,8 @@ public class BillDetailVo {
 
     private Double amount;
 
+    private int balance;
+
     private List<BillDetail> billDetails;
 
     public Date getBillByMonth(){

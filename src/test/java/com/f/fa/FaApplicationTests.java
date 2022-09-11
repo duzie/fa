@@ -40,7 +40,7 @@ public class FaApplicationTests {
 
     @Test
     public void findBillDetail() {
-        List<BillMonthDetailVo> billDetails = billDetailService.findBillDetails();
+        List<BillMonthDetailVo> billDetails = billDetailService.findBillDetails(0);
         for (BillMonthDetailVo billDetail : billDetails) {
             log.debug("{}", billDetail);
         }

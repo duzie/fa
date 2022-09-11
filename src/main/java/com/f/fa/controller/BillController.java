@@ -28,7 +28,7 @@ public class BillController {
 
     @GetMapping
     public String index(Model model) {
-        List<BillMonthDetailVo> billDetails = billDetailService.findBillDetails();
+        List<BillMonthDetailVo> billDetails = billDetailService.findBillDetails(balance);
         model.addAttribute("billMonth", billDetails);
         return "index";
     }
