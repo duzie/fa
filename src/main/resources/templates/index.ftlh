@@ -40,7 +40,7 @@
                                     <li><span>${detail.billName!}</span> ${detail.amount}元</li>
                                 </#list>
                             </ul>
-                            <span style="float:right">债 ${b.balance}元</span>
+                            <span style="float:right;color: red">债 ${b.balance}元</span>
                         </td>
                     </tr>
                 </#list>
