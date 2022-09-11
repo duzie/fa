@@ -18,7 +18,7 @@
             </#list>
             <div class="uk-form-row">
                 <input type="text" name="name" id="name" placeholder="账单名称">
-                <input type="number" pattern="[0-9]*" name="amount" placeholder="金额">
+                <input type="number" pattern="[0-9]*" name="amount" id="amount" placeholder="金额">
                 <select name="cycle">
                     <option value="0">周</option>
                     <option value="1" selected>月</option>
@@ -64,7 +64,7 @@
         document.getElementById('name').value = name;
     }
     function negative(){
-        document.getElementById('amount').value = '-';
+        document.getElementById('amount').value = '-1';
     }
 </script>
 </html>
