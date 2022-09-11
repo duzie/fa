@@ -30,6 +30,7 @@ public class BillController {
     public String index(Model model) {
         List<BillMonthDetailVo> billDetails = billDetailService.findBillDetails(balance);
         model.addAttribute("billMonth", billDetails);
+        model.addAttribute("balance", balance);
         return "index";
     }
 
@@ -41,7 +42,6 @@ public class BillController {
         model.addAttribute("list", list);
         List<String> labels = billService.labels();
         model.addAttribute("labels", labels);
-        log.debug("" + balance);
         model.addAttribute("balance", balance);
         return "add";
     }

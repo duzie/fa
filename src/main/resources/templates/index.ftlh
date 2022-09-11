@@ -22,6 +22,7 @@
 
 <div class="uk-overflow-container" style="margin: 10px;">
     <a class="uk-button" href="add">添加</a>
+    <span style="float:right">余额 ${balance}元</span>
     <#list billMonth as bill>
         <h3 align="center">
             ${bill.billDate?string('yyyy年MM月')}
