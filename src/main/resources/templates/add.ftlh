@@ -17,8 +17,8 @@
                 <a href="javascript:toName('${b}')">${b}</a>
             </#list>
             <div class="uk-form-row">
-                <input type="text" name="name" id="name" placeholder="账单名称">
-                <input type="number" pattern="[0-9]*" name="amount" placeholder="金额" value="-1">
+                <input type="text" name="name" id="name" placeholder="账单名称" value="余额">
+                <input type="number" pattern="[0-9]*" name="amount" placeholder="金额" value="${balance}">
                 <select name="cycle">
                     <option value="0">周</option>
                     <option value="1" selected>月</option>

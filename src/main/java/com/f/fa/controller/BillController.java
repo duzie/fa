@@ -6,14 +6,12 @@ import com.f.fa.pojo.BillMonthDetailVo;
 import com.f.fa.service.BillDetailService;
 import com.f.fa.service.BillService;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.util.Date;
 import java.util.List;
 
 @Slf4j
@@ -25,6 +23,8 @@ public class BillController {
 
     @Autowired
     BillService billService;
+
+    private static int balance = -1;
 
     @GetMapping
     public String index(Model model) {
@@ -41,12 +41,17 @@ public class BillController {
         model.addAttribute("list", list);
         List<String> labels = billService.labels();
         model.addAttribute("labels", labels);
+        model.addAttribute("balance", balance);
         return "add";
     }
 
     @PostMapping("add")
     public String add(Bill bill) {
-        billService.add(bill);
+        if ("余额".equals(bill.getName())) {
+            balance = bill.getAmount().intValue();
+        } else {
+            billService.add(bill);
+        }
         return "redirect:./add";
     }
 

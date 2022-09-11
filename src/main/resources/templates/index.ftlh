@@ -24,23 +24,23 @@
             ${bill.billDate?string('yyyy年MM月')}
             ${bill.amount}元
         </h3>
-<table class="uk-table "  >
-    <tbody>
-        <#list bill.billDetails as b>
-            <tr>
-                <td>${b.billDate?string('dd')}日</td>
-                <td>${b.amount}元</td>
-                <td>
-                    <ul class="uk-list uk-list-line">
-                        <#list b.billDetails as detail>
-                            <li><span>${detail.billName!}</span> ${detail.amount}元</li>
-                        </#list>
-                    </ul>
-                </td>
-            </tr>
-        </#list>
-    </tbody>
-</table>
+        <table class="uk-table "  >
+            <tbody>
+                <#list bill.billDetails as b>
+                    <tr>
+                        <td>${b.billDate?string('dd')}日</td>
+                        <td>${b.amount}元</td>
+                        <td>
+                            <ul class="uk-list uk-list-line">
+                                <#list b.billDetails as detail>
+                                    <li><span>${detail.billName!}</span> ${detail.amount}元</li>
+                                </#list>
+                            </ul>
+                        </td>
+                    </tr>
+                </#list>
+            </tbody>
+        </table>
     </#list>
 
 </div>
