@@ -14,7 +14,7 @@
         float: left;
     }
     body{
-        font-size: 14px;
+        font-size: 15rem;
     }
 </style>
 </head>
@@ -39,12 +39,8 @@
                                     <li><span>${detail.billName!}</span> ${detail.amount}元</li>
                                 </#list>
                             </ul>
+                            <span style="float:right">债 ${b.balance}元</span>
                         </td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td>债 ${b.balance}元</td>
                     </tr>
                 </#list>
             </tbody>
