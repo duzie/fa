@@ -41,6 +41,7 @@ public class BillController {
         model.addAttribute("list", list);
         List<String> labels = billService.labels();
         model.addAttribute("labels", labels);
+        log.debug("" + balance);
         model.addAttribute("balance", balance);
         return "add";
     }
