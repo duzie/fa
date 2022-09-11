@@ -40,8 +40,8 @@
                     </tr>
                     <tr>
                         <td></td>
-                        <td>债</td>
-                        <td>${b.balance}元</td>
+                        <td></td>
+                        <td>债 ${b.balance}元</td>
                     </tr>
                 </#list>
             </tbody>
