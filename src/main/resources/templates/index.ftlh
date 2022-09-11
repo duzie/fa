@@ -39,8 +39,8 @@
                         </td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td>债 ${b.balance}</td>
+                        <td>债</td>
+                        <td>${b.balance}</td>
                         <td></td>
                     </tr>
                 </#list>

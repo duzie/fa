@@ -33,6 +33,7 @@ public class BillDetailServiceImpl extends ServiceImpl<BillDetailMapper, BillDet
             billDetailVos.add(billDetailVo);
         }
         billDetailVos.sort(Comparator.comparing(BillDetailVo::getBillDate));
+
         for (BillDetailVo billDetailVo : billDetailVos) {
             balance = billDetailVo.getAmount().intValue() + balance;
             billDetailVo.setBalance(balance);
