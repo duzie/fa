@@ -18,13 +18,12 @@
             </#list>
             <div class="uk-form-row">
                 <input type="text" name="name" id="name" placeholder="账单名称">
-                <input type="number" pattern="[0-9]*" name="amount" id="amount" placeholder="金额">
+                <input type="number" pattern="[0-9]*" name="amount" placeholder="金额" value="-1">
                 <select name="cycle">
                     <option value="0">周</option>
                     <option value="1" selected>月</option>
                     <option value="2">年</option>
                 </select>
-                <a href="javascript:negative()">负</a>
             </div>
             <div class="uk-form-row">
                 <input type="text" pattern="[0-9]*" name="periods" placeholder="期数" value="1">
@@ -62,9 +61,6 @@
     }
     function toName(name){
         document.getElementById('name').value = name;
-    }
-    function negative(){
-        document.getElementById('amount').value = '-1';
     }
 </script>
 </html>
