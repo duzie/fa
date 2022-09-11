@@ -6,12 +6,14 @@ import com.f.fa.pojo.BillMonthDetailVo;
 import com.f.fa.service.BillDetailService;
 import com.f.fa.service.BillService;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.Date;
 import java.util.List;
 
 @Slf4j
@@ -37,6 +39,8 @@ public class BillController {
         queryWrapper.orderByDesc("create_date");
         List list = billService.list(queryWrapper);
         model.addAttribute("list", list);
+        List<String> labels = billService.labels();
+        model.addAttribute("labels", labels);
         return "add";
     }
 

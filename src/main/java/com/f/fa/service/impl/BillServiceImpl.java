@@ -67,4 +67,9 @@ public class BillServiceImpl extends ServiceImpl<BillMapper, Bill> implements Bi
         map.put("bill_id", id);
         billDetailService.removeByMap(map);
     }
+
+    @Override
+    public List<String> labels() {
+        return this.baseMapper.labels();
+    }
 }

@@ -13,8 +13,11 @@
     <form class="uk-form" action="add?${_csrf.parameterName}=${_csrf.token}" method="post">
         <fieldset>
             <legend>录入</legend>
+            <#list labels as b>
+                <a href="javascript:toName('${b}')">${b}</a>
+            </#list>
             <div class="uk-form-row">
-                <input type="text" name="name" placeholder="账单名称">
+                <input type="text" name="name" id="name" placeholder="账单名称">
                 <input type="number" pattern="[0-9]*" name="amount" placeholder="金额">
                 <select name="cycle">
                     <option value="0">周</option>
@@ -55,6 +58,9 @@
         if(confirm('删除？')){
             location.href = './delete?id='+id;
         }
+    }
+    function toName(name){
+        document.getElementById('name').value = name;
     }
 </script>
 </html>

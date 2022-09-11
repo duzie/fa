@@ -11,4 +11,7 @@
     <result column="start_date" jdbcType="DATE" property="startDate" />
   </resultMap>
 
+  <select id="labels" resultType="java.lang.String">
+    select name from bill where create_date  &gt; date_add(now(), interval -1 month) group by name
+  </select>
 </mapper>
