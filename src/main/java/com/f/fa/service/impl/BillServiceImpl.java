@@ -40,6 +40,9 @@ public class BillServiceImpl extends ServiceImpl<BillMapper, Bill> implements Bi
             billDetailList.add(billDetail);
 
             switch (cycleType) {
+                case DAY:
+                    startDate = DateUtils.addDays(startDate, 1);
+                    break;
                 case WEEK:
                     startDate = DateUtils.addWeeks(startDate, 1);
                     break;

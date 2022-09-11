@@ -2,7 +2,7 @@ package com.f.fa.pojo.enums;
 
 public enum CycleType {
 
-    WEEK(0), MONTH(1), YEAR(2);
+    DAY(-1),WEEK(0), MONTH(1), YEAR(2);
 
     private int value;
 

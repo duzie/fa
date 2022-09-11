@@ -20,6 +20,7 @@
                 <input type="text" name="name" id="name" placeholder="账单名称" value="余额">
                 <input type="number" pattern="[0-9]*" name="amount" placeholder="金额" value="${balance?c}">
                 <select name="cycle">
+                    <option value="-1">天</option>
                     <option value="0">周</option>
                     <option value="1" selected>月</option>
                     <option value="2">年</option>
