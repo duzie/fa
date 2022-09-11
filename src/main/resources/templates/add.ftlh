@@ -24,6 +24,7 @@
                     <option value="1" selected>月</option>
                     <option value="2">年</option>
                 </select>
+                <a href="javascript:negative()">负</a>
             </div>
             <div class="uk-form-row">
                 <input type="text" pattern="[0-9]*" name="periods" placeholder="期数" value="1">
@@ -61,6 +62,9 @@
     }
     function toName(name){
         document.getElementById('name').value = name;
+    }
+    function negative(){
+        document.getElementById('amount').value = '-';
     }
 </script>
 </html>
