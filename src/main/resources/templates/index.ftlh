@@ -14,7 +14,7 @@
         float: left;
     }
     body{
-        font-size: 15rem;
+        font-size: 15px;
     }
 </style>
 </head>
