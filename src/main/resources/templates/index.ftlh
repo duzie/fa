@@ -13,6 +13,9 @@
         display: block;
         float: left;
     }
+    body{
+        font-size: 14px;
+    }
 </style>
 </head>
 <body>
